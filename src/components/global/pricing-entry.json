@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_global_pricing_entries",
+  "info": {
+    "displayName": "Pricing Entry",
+    "icon": "bell",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "PriceTitle": {
+      "type": "string"
+    },
+    "PriceBody": {
+      "type": "richtext"
+    },
+    "Features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.pricing-component"
+    },
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Price": {
+      "type": "decimal",
+      "default": 29.99
+    }
+  }
+}

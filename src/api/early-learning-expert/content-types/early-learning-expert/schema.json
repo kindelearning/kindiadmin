@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "early_learning_experts",
+  "info": {
+    "singularName": "early-learning-expert",
+    "pluralName": "early-learning-experts",
+    "displayName": "EarlyLearningExpert"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.basic-kindi-section"
+    }
+  }
+}

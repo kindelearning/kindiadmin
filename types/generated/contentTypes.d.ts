@@ -369,6 +369,103 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiChilddevelopmentunlockChilddevelopmentunlock
+  extends Struct.SingleTypeSchema {
+  collectionName: 'childdevelopmentunlocks';
+  info: {
+    description: '';
+    displayName: 'Childdevelopmentunlock';
+    pluralName: 'childdevelopmentunlocks';
+    singularName: 'childdevelopmentunlock';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.basic-kindi-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::childdevelopmentunlock.childdevelopmentunlock'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDefaultreviewDefaultreview extends Struct.SingleTypeSchema {
+  collectionName: 'defaultreviews';
+  info: {
+    description: '';
+    displayName: 'Defaultreview';
+    pluralName: 'defaultreviews';
+    singularName: 'defaultreview';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.review-component', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::defaultreview.defaultreview'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEarlyLearningExpertEarlyLearningExpert
+  extends Struct.SingleTypeSchema {
+  collectionName: 'early_learning_experts';
+  info: {
+    displayName: 'EarlyLearningExpert';
+    pluralName: 'early-learning-experts';
+    singularName: 'early-learning-expert';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.basic-kindi-section', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::early-learning-expert.early-learning-expert'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHeroSectionHomepageHeroSection
   extends Struct.SingleTypeSchema {
   collectionName: 'homepage_hero_sections';
@@ -447,6 +544,296 @@ export interface ApiHomepageHomepage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     PageTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHowitworkHowitwork extends Struct.SingleTypeSchema {
+  collectionName: 'howitworks';
+  info: {
+    description: '';
+    displayName: 'Howitwork';
+    pluralName: 'howitworks';
+    singularName: 'howitwork';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HIWSection: Schema.Attribute.Component<'global.basic-kindi-section', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::howitwork.howitwork'
+    >;
+    MainBody: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    MainTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestmentoppertuniteInvestmentoppertunite
+  extends Struct.SingleTypeSchema {
+  collectionName: 'investmentoppertunites';
+  info: {
+    description: '';
+    displayName: 'Investmentoppertunite';
+    pluralName: 'investmentoppertunites';
+    singularName: 'investmentoppertunite';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.standard-pages-data', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investmentoppertunite.investmentoppertunite'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMonthlythemeMonthlytheme extends Struct.SingleTypeSchema {
+  collectionName: 'monthlythemes';
+  info: {
+    displayName: 'monthlytheme';
+    pluralName: 'monthlythemes';
+    singularName: 'monthlytheme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.basic-kindi-section', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::monthlytheme.monthlytheme'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurpricingOurpricing extends Struct.SingleTypeSchema {
+  collectionName: 'ourpricings';
+  info: {
+    description: '';
+    displayName: 'Ourpricing';
+    pluralName: 'ourpricings';
+    singularName: 'ourpricing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AnnualPlans: Schema.Attribute.Component<'global.pricing-entry', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featuredText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ourpricing.ourpricing'
+    > &
+      Schema.Attribute.Private;
+    MonthlyPlans: Schema.Attribute.Component<'global.pricing-entry', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    SectionBody: Schema.Attribute.RichText;
+    SectionTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPopularlearningPopularlearning
+  extends Struct.SingleTypeSchema {
+  collectionName: 'popularlearnings';
+  info: {
+    description: '';
+    displayName: 'Popularlearning';
+    pluralName: 'popularlearnings';
+    singularName: 'popularlearning';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.basic-kindi-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::popularlearning.popularlearning'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacypolicyPrivacypolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacypolicies';
+  info: {
+    displayName: 'Privacypolicy';
+    pluralName: 'privacypolicies';
+    singularName: 'privacypolicy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.standard-pages-data', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacypolicy.privacypolicy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiQualitycontrolQualitycontrol
+  extends Struct.SingleTypeSchema {
+  collectionName: 'qualitycontrols';
+  info: {
+    displayName: 'Qualitycontrol';
+    pluralName: 'qualitycontrols';
+    singularName: 'qualitycontrol';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.standard-pages-data', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::qualitycontrol.qualitycontrol'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRefundpolicyRefundpolicy extends Struct.SingleTypeSchema {
+  collectionName: 'refundpolicies';
+  info: {
+    displayName: 'Refundpolicy';
+    pluralName: 'refundpolicies';
+    singularName: 'refundpolicy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.standard-pages-data', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::refundpolicy.refundpolicy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTncTnc extends Struct.SingleTypeSchema {
+  collectionName: 'tncs';
+  info: {
+    displayName: 'Tnc';
+    pluralName: 'tncs';
+    singularName: 'tnc';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.standard-pages-data', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tnc.tnc'> &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -963,8 +1350,20 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::childdevelopmentunlock.childdevelopmentunlock': ApiChilddevelopmentunlockChilddevelopmentunlock;
+      'api::defaultreview.defaultreview': ApiDefaultreviewDefaultreview;
+      'api::early-learning-expert.early-learning-expert': ApiEarlyLearningExpertEarlyLearningExpert;
       'api::homepage-hero-section.homepage-hero-section': ApiHomepageHeroSectionHomepageHeroSection;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::howitwork.howitwork': ApiHowitworkHowitwork;
+      'api::investmentoppertunite.investmentoppertunite': ApiInvestmentoppertuniteInvestmentoppertunite;
+      'api::monthlytheme.monthlytheme': ApiMonthlythemeMonthlytheme;
+      'api::ourpricing.ourpricing': ApiOurpricingOurpricing;
+      'api::popularlearning.popularlearning': ApiPopularlearningPopularlearning;
+      'api::privacypolicy.privacypolicy': ApiPrivacypolicyPrivacypolicy;
+      'api::qualitycontrol.qualitycontrol': ApiQualitycontrolQualitycontrol;
+      'api::refundpolicy.refundpolicy': ApiRefundpolicyRefundpolicy;
+      'api::tnc.tnc': ApiTncTnc;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

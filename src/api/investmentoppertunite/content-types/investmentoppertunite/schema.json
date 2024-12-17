@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "investmentoppertunites",
+  "info": {
+    "singularName": "investmentoppertunite",
+    "pluralName": "investmentoppertunites",
+    "displayName": "Investmentoppertunite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "displayName": "StandardPagesData",
+      "type": "component",
+      "repeatable": false,
+      "component": "global.standard-pages-data"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_global_basic_kindi_sections",
+  "info": {
+    "displayName": "Basic Kindi Section",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "featuredText": {
+      "type": "string",
+      "unique": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "BodyDescription": {
+      "type": "blocks"
+    },
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

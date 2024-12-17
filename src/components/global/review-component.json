@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_global_review_components",
+  "info": {
+    "displayName": "Review Component",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "featuredText": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "bgcolor": {
+      "type": "string",
+      "maxLength": 7,
+      "minLength": 3
+    }
+  }
+}

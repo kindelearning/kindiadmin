@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "defaultreviews",
+  "info": {
+    "singularName": "defaultreview",
+    "pluralName": "defaultreviews",
+    "displayName": "Defaultreview",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.review-component"
+    }
+  }
+}

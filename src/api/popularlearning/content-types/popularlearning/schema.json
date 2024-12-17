@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "popularlearnings",
+  "info": {
+    "singularName": "popularlearning",
+    "pluralName": "popularlearnings",
+    "displayName": "Popularlearning",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.basic-kindi-section",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

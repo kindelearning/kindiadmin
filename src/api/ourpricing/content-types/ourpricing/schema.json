@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "ourpricings",
+  "info": {
+    "singularName": "ourpricing",
+    "pluralName": "ourpricings",
+    "displayName": "Ourpricing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SectionTitle": {
+      "type": "string"
+    },
+    "SectionBody": {
+      "type": "richtext"
+    },
+    "MonthlyPlans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.pricing-entry"
+    },
+    "AnnualPlans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.pricing-entry"
+    },
+    "featuredText": {
+      "type": "string"
+    }
+  }
+}
