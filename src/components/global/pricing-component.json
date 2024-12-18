@@ -2,7 +2,8 @@
   "collectionName": "components_global_pricing_components",
   "info": {
     "displayName": "Pricing Component",
-    "icon": "shoppingCart"
+    "icon": "shoppingCart",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,8 +15,7 @@
       "default": true
     },
     "HelpText": {
-      "type": "richtext",
-      "default": "Educational play activities, ensuring children learn and develop consistently."
+      "type": "text"
     }
   }
 }

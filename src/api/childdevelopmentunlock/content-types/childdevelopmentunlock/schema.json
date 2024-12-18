@@ -24,7 +24,7 @@
           "localized": true
         }
       },
-      "component": "global.basic-kindi-section"
+      "component": "global.kindi-regular-section"
     }
   }
 }

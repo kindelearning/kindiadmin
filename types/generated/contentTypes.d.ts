@@ -387,7 +387,7 @@ export interface ApiChilddevelopmentunlockChilddevelopmentunlock
     };
   };
   attributes: {
-    Content: Schema.Attribute.Component<'global.basic-kindi-section', false> &
+    Content: Schema.Attribute.Component<'global.kindi-regular-section', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -437,6 +437,72 @@ export interface ApiDefaultreviewDefaultreview extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDynammicPageContentDynammicPageContent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'dynammic_page_contents';
+  info: {
+    description: '';
+    displayName: 'Dynammic page content';
+    pluralName: 'dynammic-page-contents';
+    singularName: 'dynammic-page-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Activity: Schema.Attribute.Component<
+      'global.kindi-regular-section',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Community: Schema.Attribute.Component<
+      'global.kindi-regular-section',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dynammic-page-content.dynammic-page-content'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Scheduler: Schema.Attribute.Component<
+      'global.kindi-regular-section',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Shop: Schema.Attribute.Component<'global.kindi-regular-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEarlyLearningExpertEarlyLearningExpert
   extends Struct.SingleTypeSchema {
   collectionName: 'early_learning_experts';
@@ -458,6 +524,31 @@ export interface ApiEarlyLearningExpertEarlyLearningExpert
       'oneToMany',
       'api::early-learning-expert.early-learning-expert'
     > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.SingleTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'Faq';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.faq', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -523,27 +614,85 @@ export interface ApiHomepageHeroSectionHomepageHeroSection
   };
 }
 
-export interface ApiHomepageHomepage extends Struct.CollectionTypeSchema {
-  collectionName: 'homepages';
+export interface ApiHowItWorkPageHowItWorkPage extends Struct.SingleTypeSchema {
+  collectionName: 'how_it_work_pages';
   info: {
-    displayName: 'Homepage';
-    pluralName: 'homepages';
-    singularName: 'homepage';
+    description: '';
+    displayName: 'How It Work Page';
+    pluralName: 'how-it-work-pages';
+    singularName: 'how-it-work-page';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
+    AgeGroup: Schema.Attribute.Component<'global.age-group-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ArealearningBody: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    AreaOflearningCards: Schema.Attribute.Component<
+      'global.toggle-card',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    AreaoflearningTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Hero: Schema.Attribute.Component<'global.kindi-regular-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    KindiSkillsCategoriesBody: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    KindiSkillsCategoriesCards: Schema.Attribute.Component<
+      'global.toggle-card',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    KindiSkillsCategoriesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::homepage.homepage'
-    > &
-      Schema.Attribute.Private;
-    PageTitle: Schema.Attribute.String;
+      'api::how-it-work-page.how-it-work-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -555,7 +704,7 @@ export interface ApiHowitworkHowitwork extends Struct.SingleTypeSchema {
   collectionName: 'howitworks';
   info: {
     description: '';
-    displayName: 'Howitwork';
+    displayName: 'How it work Section';
     pluralName: 'howitworks';
     singularName: 'howitwork';
   };
@@ -652,6 +801,68 @@ export interface ApiMonthlythemeMonthlytheme extends Struct.SingleTypeSchema {
       'api::monthlytheme.monthlytheme'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurMissionOurMission extends Struct.SingleTypeSchema {
+  collectionName: 'our_missions';
+  info: {
+    description: '';
+    displayName: 'Our Mission';
+    pluralName: 'our-missions';
+    singularName: 'our-mission';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Hero: Schema.Attribute.Component<'global.kindi-regular-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-mission.our-mission'
+    >;
+    OurStory: Schema.Attribute.Component<
+      'global.kindi-regular-section',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    OurTeam: Schema.Attribute.Component<'global.team-member', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Parentwithkindi: Schema.Attribute.Component<
+      'global.kindi-regular-section',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1352,12 +1563,15 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::childdevelopmentunlock.childdevelopmentunlock': ApiChilddevelopmentunlockChilddevelopmentunlock;
       'api::defaultreview.defaultreview': ApiDefaultreviewDefaultreview;
+      'api::dynammic-page-content.dynammic-page-content': ApiDynammicPageContentDynammicPageContent;
       'api::early-learning-expert.early-learning-expert': ApiEarlyLearningExpertEarlyLearningExpert;
+      'api::faq.faq': ApiFaqFaq;
       'api::homepage-hero-section.homepage-hero-section': ApiHomepageHeroSectionHomepageHeroSection;
-      'api::homepage.homepage': ApiHomepageHomepage;
+      'api::how-it-work-page.how-it-work-page': ApiHowItWorkPageHowItWorkPage;
       'api::howitwork.howitwork': ApiHowitworkHowitwork;
       'api::investmentoppertunite.investmentoppertunite': ApiInvestmentoppertuniteInvestmentoppertunite;
       'api::monthlytheme.monthlytheme': ApiMonthlythemeMonthlytheme;
+      'api::our-mission.our-mission': ApiOurMissionOurMission;
       'api::ourpricing.ourpricing': ApiOurpricingOurpricing;
       'api::popularlearning.popularlearning': ApiPopularlearningPopularlearning;
       'api::privacypolicy.privacypolicy': ApiPrivacypolicyPrivacypolicy;

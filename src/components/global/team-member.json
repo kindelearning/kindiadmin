@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_team_members",
+  "info": {
+    "displayName": "Team Member",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Degree": {
+      "type": "text"
+    },
+    "About": {
+      "type": "richtext"
+    }
+  }
+}

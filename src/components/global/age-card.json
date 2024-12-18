@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_age_cards",
+  "info": {
+    "displayName": "AgeCard",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "text"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

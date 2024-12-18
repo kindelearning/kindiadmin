@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "dynammic_page_contents",
+  "info": {
+    "singularName": "dynammic-page-content",
+    "pluralName": "dynammic-page-contents",
+    "displayName": "Dynammic page content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Community": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "Shop": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "Scheduler": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "Activity": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    }
+  }
+}

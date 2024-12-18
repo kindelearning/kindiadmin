@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_global_age_group_sections",
+  "info": {
+    "displayName": "AgeGroupSection",
+    "icon": "eye",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.age-card"
+    },
+    "featuredText": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_missions",
+  "info": {
+    "singularName": "our-mission",
+    "pluralName": "our-missions",
+    "displayName": "Our Mission",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "OurStory": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "Parentwithkindi": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.kindi-regular-section"
+    },
+    "OurTeam": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.team-member"
+    }
+  }
+}

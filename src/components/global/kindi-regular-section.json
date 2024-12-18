@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_global_kindi_regular_sections",
+  "info": {
+    "displayName": "Kindi Regular Section",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "featuredText": {
+      "type": "text"
+    },
+    "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

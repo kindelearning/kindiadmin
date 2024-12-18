@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "icon": "bell",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "richtext",
+      "default": "Educational play activities, ensuring children learn and develop consistently."
+    }
+  }
+}
