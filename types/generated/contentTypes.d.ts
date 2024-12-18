@@ -870,6 +870,70 @@ export interface ApiOurMissionOurMission extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiOurThemeOurTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'our_themes';
+  info: {
+    description: '';
+    displayName: 'Our Theme';
+    pluralName: 'our-themes';
+    singularName: 'our-theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    LaunchTime: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-theme.our-theme'
+    >;
+    MainContent: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaDesc: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOurpricingOurpricing extends Struct.SingleTypeSchema {
   collectionName: 'ourpricings';
   info: {
@@ -1572,6 +1636,7 @@ declare module '@strapi/strapi' {
       'api::investmentoppertunite.investmentoppertunite': ApiInvestmentoppertuniteInvestmentoppertunite;
       'api::monthlytheme.monthlytheme': ApiMonthlythemeMonthlytheme;
       'api::our-mission.our-mission': ApiOurMissionOurMission;
+      'api::our-theme.our-theme': ApiOurThemeOurTheme;
       'api::ourpricing.ourpricing': ApiOurpricingOurpricing;
       'api::popularlearning.popularlearning': ApiPopularlearningPopularlearning;
       'api::privacypolicy.privacypolicy': ApiPrivacypolicyPrivacypolicy;
