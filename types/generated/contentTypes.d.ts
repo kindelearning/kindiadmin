@@ -408,6 +408,36 @@ export interface ApiChilddevelopmentunlockChilddevelopmentunlock
   };
 }
 
+export interface ApiContentContent extends Struct.CollectionTypeSchema {
+  collectionName: 'contents';
+  info: {
+    displayName: 'Content';
+    pluralName: 'contents';
+    singularName: 'content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Body: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::content.content'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDefaultreviewDefaultreview extends Struct.SingleTypeSchema {
   collectionName: 'defaultreviews';
   info: {
@@ -1094,6 +1124,7 @@ export interface ApiRefundpolicyRefundpolicy extends Struct.SingleTypeSchema {
 export interface ApiTncTnc extends Struct.SingleTypeSchema {
   collectionName: 'tncs';
   info: {
+    description: '';
     displayName: 'Tnc';
     pluralName: 'tncs';
     singularName: 'tnc';
@@ -1626,6 +1657,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::childdevelopmentunlock.childdevelopmentunlock': ApiChilddevelopmentunlockChilddevelopmentunlock;
+      'api::content.content': ApiContentContent;
       'api::defaultreview.defaultreview': ApiDefaultreviewDefaultreview;
       'api::dynammic-page-content.dynammic-page-content': ApiDynammicPageContentDynammicPageContent;
       'api::early-learning-expert.early-learning-expert': ApiEarlyLearningExpertEarlyLearningExpert;

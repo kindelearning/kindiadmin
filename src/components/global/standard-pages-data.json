@@ -13,12 +13,12 @@
     "Body": {
       "type": "text"
     },
-    "Pagecontent": {
-      "type": "richtext"
-    },
     "Lastupdated": {
       "type": "date",
       "default": "2024-12-01"
+    },
+    "Pagecontent": {
+      "type": "richtext"
     }
   }
 }
