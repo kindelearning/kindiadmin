@@ -587,6 +587,7 @@ export interface ApiChilddevelopmentunlockChilddevelopmentunlock
 export interface ApiContentContent extends Struct.CollectionTypeSchema {
   collectionName: 'contents';
   info: {
+    description: '';
     displayName: 'Content';
     pluralName: 'contents';
     singularName: 'content';
