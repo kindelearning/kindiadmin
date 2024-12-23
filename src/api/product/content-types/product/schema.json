@@ -122,6 +122,14 @@
       },
       "type": "boolean",
       "default": true
+    },
+    "Keywords": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }

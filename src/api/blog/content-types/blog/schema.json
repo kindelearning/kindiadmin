@@ -72,14 +72,27 @@
       },
       "type": "text"
     },
-    "Slug": {
+    "Likes": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
-      "targetField": "Text"
+      "type": "integer"
+    },
+    "Dislikes": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "blog"
     }
   }
 }
