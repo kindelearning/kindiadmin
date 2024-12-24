@@ -110,6 +110,15 @@
       },
       "type": "string",
       "default": "10 minutes"
+    },
+    "SkillCategory": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Sensory Development"
     }
   }
 }

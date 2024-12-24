@@ -123,13 +123,58 @@
       "type": "boolean",
       "default": true
     },
+    "SkillOptions": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Sensory Development"
+    },
+    "MaterialOptions": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Fabric"
+    },
+    "TypeOfToy": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Educaional"
+    },
+    "EducationalFeatures": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Physical Agility"
+    },
+    "DiscountType": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "On Sale"
+    },
     "Keywords": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks"
+      "type": "string"
     }
   }
 }
