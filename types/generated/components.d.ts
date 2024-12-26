@@ -171,6 +171,22 @@ export interface GlobalToggleCard extends Struct.ComponentSchema {
   };
 }
 
+export interface UserKidProfile extends Struct.ComponentSchema {
+  collectionName: 'components_user_kid_profiles';
+  info: {
+    description: '';
+    displayName: 'KidProfile';
+    icon: 'archive';
+  };
+  attributes: {
+    age: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
+    AttendingNursury: Schema.Attribute.Boolean;
+    dob: Schema.Attribute.Date & Schema.Attribute.DefaultTo<'2024-12-01'>;
+    Gender: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Male'>;
+    Name: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Kid Name'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -185,6 +201,7 @@ declare module '@strapi/strapi' {
       'global.standard-pages-data': GlobalStandardPagesData;
       'global.team-member': GlobalTeamMember;
       'global.toggle-card': GlobalToggleCard;
+      'user.kid-profile': UserKidProfile;
     }
   }
 }
