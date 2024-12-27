@@ -1585,6 +1585,7 @@ export interface ApiRefundpolicyRefundpolicy extends Struct.SingleTypeSchema {
 export interface ApiSliderSlider extends Struct.SingleTypeSchema {
   collectionName: 'sliders';
   info: {
+    description: '';
     displayName: 'Slider';
     pluralName: 'sliders';
     singularName: 'slider';
