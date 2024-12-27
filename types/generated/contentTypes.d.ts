@@ -497,7 +497,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
-    Content: Schema.Attribute.Blocks &
+    Content: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -917,7 +917,7 @@ export interface ApiHomepageHeroSectionHomepageHeroSection
     };
   };
   attributes: {
-    BodyDescription: Schema.Attribute.Blocks &
+    BodyDescription: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1073,7 +1073,7 @@ export interface ApiHowitworkHowitwork extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::howitwork.howitwork'
     >;
-    MainBody: Schema.Attribute.Blocks &
+    MainBody: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1125,6 +1125,7 @@ export interface ApiInvestmentoppertuniteInvestmentoppertunite
 export interface ApiMonthlythemeMonthlytheme extends Struct.SingleTypeSchema {
   collectionName: 'monthlythemes';
   info: {
+    description: '';
     displayName: 'monthlytheme';
     pluralName: 'monthlythemes';
     singularName: 'monthlytheme';
@@ -1574,6 +1575,40 @@ export interface ApiRefundpolicyRefundpolicy extends Struct.SingleTypeSchema {
       'api::refundpolicy.refundpolicy'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSliderSlider extends Struct.SingleTypeSchema {
+  collectionName: 'sliders';
+  info: {
+    displayName: 'Slider';
+    pluralName: 'sliders';
+    singularName: 'slider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'global.kindi-regular-section', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::slider.slider'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2150,6 +2185,7 @@ declare module '@strapi/strapi' {
       'api::product.product': ApiProductProduct;
       'api::qualitycontrol.qualitycontrol': ApiQualitycontrolQualitycontrol;
       'api::refundpolicy.refundpolicy': ApiRefundpolicyRefundpolicy;
+      'api::slider.slider': ApiSliderSlider;
       'api::tnc.tnc': ApiTncTnc;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

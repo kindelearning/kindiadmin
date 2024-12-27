@@ -4,7 +4,8 @@
   "info": {
     "singularName": "monthlytheme",
     "pluralName": "monthlythemes",
-    "displayName": "monthlytheme"
+    "displayName": "monthlytheme",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

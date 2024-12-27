@@ -31,11 +31,12 @@ export interface GlobalAgeGroupSection extends Struct.ComponentSchema {
 export interface GlobalBasicKindiSection extends Struct.ComponentSchema {
   collectionName: 'components_global_basic_kindi_sections';
   info: {
+    description: '';
     displayName: 'Basic Kindi Section';
     icon: 'cloud';
   };
   attributes: {
-    BodyDescription: Schema.Attribute.Blocks;
+    BodyDescription: Schema.Attribute.RichText;
     featuredText: Schema.Attribute.String;
     Media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
