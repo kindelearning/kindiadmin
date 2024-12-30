@@ -85,17 +85,23 @@
       "repeatable": true,
       "component": "user.kid-profile"
     },
+    "myPayment": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment-method.payment-method",
+      "mappedBy": "user"
+    },
     "myPartners": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "partnerDetails"
+      "mappedBy": "partnerOf"
     },
-    "partnerDetails": {
+    "partnerOf": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "myPartners"
+      "inversedBy": "myPartners"
     }
   }
 }

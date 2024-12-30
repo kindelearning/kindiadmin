@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_methods",
+  "info": {
+    "singularName": "payment-method",
+    "pluralName": "payment-methods",
+    "displayName": "Payment Method",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Number": {
+      "type": "biginteger",
+      "default": "433443344334"
+    },
+    "ExpiryDate": {
+      "type": "date"
+    },
+    "CVV": {
+      "type": "integer",
+      "max": 999,
+      "min": 100,
+      "default": 123
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "myPayment"
+    }
+  }
+}

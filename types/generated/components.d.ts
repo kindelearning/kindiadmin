@@ -181,10 +181,22 @@ export interface UserKidProfile extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
+    activity_completeds: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activity.activity'
+    >;
     age: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
     AttendingNursury: Schema.Attribute.Boolean;
+    badge_completeds: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::badge.badge'
+    >;
     dob: Schema.Attribute.Date & Schema.Attribute.DefaultTo<'2024-12-01'>;
     Gender: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Male'>;
+    milestone_completeds: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milestone.milestone'
+    >;
     Name: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Kid Name'>;
   };
 }

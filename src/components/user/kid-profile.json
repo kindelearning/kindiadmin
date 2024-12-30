@@ -25,6 +25,21 @@
     "dob": {
       "type": "date",
       "default": "2024-12-01"
+    },
+    "activity_completeds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activity.activity"
+    },
+    "milestone_completeds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::milestone.milestone"
+    },
+    "badge_completeds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::badge.badge"
     }
   }
 }
