@@ -81,27 +81,28 @@
       "type": "string"
     },
     "myKids": {
-      "type": "component",
-      "repeatable": true,
-      "component": "user.kid-profile"
-    },
-    "myPayment": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
+      "target": "api::kid.kid",
+      "inversedBy": "myParent"
+    },
+    "myPaymentMethods": {
+      "type": "relation",
+      "relation": "manyToMany",
       "target": "api::payment-method.payment-method",
-      "mappedBy": "user"
+      "inversedBy": "myUsers"
     },
-    "myPartners": {
+    "myPartner": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "partnerOf"
+      "inversedBy": "iAmPartnerOf"
     },
-    "partnerOf": {
+    "iAmPartnerOf": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "myPartners"
+      "mappedBy": "myPartner"
     }
   }
 }

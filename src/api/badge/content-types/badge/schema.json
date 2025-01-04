@@ -28,6 +28,12 @@
     },
     "Description": {
       "type": "richtext"
+    },
+    "kid": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kid.kid",
+      "inversedBy": "myBadges"
     }
   }
 }

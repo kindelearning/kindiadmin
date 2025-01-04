@@ -119,6 +119,12 @@
       },
       "type": "string",
       "default": "Sensory Development"
+    },
+    "kid": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kid.kid",
+      "inversedBy": "myActivities"
     }
   }
 }

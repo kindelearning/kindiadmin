@@ -61,6 +61,12 @@
         }
       },
       "type": "string"
+    },
+    "kid": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kid.kid",
+      "inversedBy": "myMilestones"
     }
   }
 }

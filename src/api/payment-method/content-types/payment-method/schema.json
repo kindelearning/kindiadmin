@@ -28,11 +28,11 @@
       "min": 100,
       "default": 123
     },
-    "user": {
+    "myUsers": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "myPayment"
+      "mappedBy": "myPaymentMethods"
     }
   }
 }

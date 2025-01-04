@@ -416,6 +416,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    kid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
     LearningArea: Schema.Attribute.Enumeration<
       [
         'Emotional & Social Strength',
@@ -495,6 +496,7 @@ export interface ApiBadgeBadge extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.RichText;
+    kid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::badge.badge'> &
       Schema.Attribute.Private;
@@ -1151,6 +1153,83 @@ export interface ApiInvestmentoppertuniteInvestmentoppertunite
   };
 }
 
+export interface ApiKidKid extends Struct.CollectionTypeSchema {
+  collectionName: 'kids';
+  info: {
+    description: '';
+    displayName: 'Kid';
+    pluralName: 'kids';
+    singularName: 'kid';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Age: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<12>;
+    AttendingNursury: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dob: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'2025-01-14'>;
+    Gender: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'M'>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::kid.kid'>;
+    myActivities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activity.activity'
+    >;
+    myBadges: Schema.Attribute.Relation<'oneToMany', 'api::badge.badge'>;
+    myMilestones: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milestone.milestone'
+    >;
+    myParent: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Kid Name'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLevelLevel extends Struct.CollectionTypeSchema {
   collectionName: 'levels';
   info: {
@@ -1222,6 +1301,7 @@ export interface ApiMilestoneMilestone extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    kid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1474,6 +1554,10 @@ export interface ApiPaymentMethodPaymentMethod
       'api::payment-method.payment-method'
     > &
       Schema.Attribute.Private;
+    myUsers: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     Name: Schema.Attribute.String;
     Number: Schema.Attribute.BigInteger &
       Schema.Attribute.DefaultTo<'433443344334'>;
@@ -1481,10 +1565,6 @@ export interface ApiPaymentMethodPaymentMethod
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
   };
 }
 
@@ -2289,6 +2369,10 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    iAmPartnerOf: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     isPremium: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2296,20 +2380,16 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
-    myKids: Schema.Attribute.Component<'user.kid-profile', true>;
-    myPartners: Schema.Attribute.Relation<
-      'oneToMany',
+    myKids: Schema.Attribute.Relation<'manyToMany', 'api::kid.kid'>;
+    myPartner: Schema.Attribute.Relation<
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
-    myPayment: Schema.Attribute.Relation<
-      'oneToMany',
+    myPaymentMethods: Schema.Attribute.Relation<
+      'manyToMany',
       'api::payment-method.payment-method'
     >;
     Name: Schema.Attribute.String;
-    partnerOf: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -2360,6 +2440,7 @@ declare module '@strapi/strapi' {
       'api::how-it-work-page.how-it-work-page': ApiHowItWorkPageHowItWorkPage;
       'api::howitwork.howitwork': ApiHowitworkHowitwork;
       'api::investmentoppertunite.investmentoppertunite': ApiInvestmentoppertuniteInvestmentoppertunite;
+      'api::kid.kid': ApiKidKid;
       'api::level.level': ApiLevelLevel;
       'api::milestone.milestone': ApiMilestoneMilestone;
       'api::monthlytheme.monthlytheme': ApiMonthlythemeMonthlytheme;
