@@ -1224,6 +1224,12 @@ export interface ApiKidKid extends Struct.CollectionTypeSchema {
       }> &
       Schema.Attribute.DefaultTo<'Kid Name'>;
     publishedAt: Schema.Attribute.DateTime;
+    schedulerData: Schema.Attribute.JSON &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
