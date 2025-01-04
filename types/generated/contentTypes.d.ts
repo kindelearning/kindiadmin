@@ -2403,6 +2403,9 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    SubscriptionLevel: Schema.Attribute.Enumeration<
+      ['Family', 'Family Plus', 'Professional']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

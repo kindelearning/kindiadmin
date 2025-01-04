@@ -103,6 +103,14 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "myPartner"
+    },
+    "SubscriptionLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Family",
+        "Family Plus",
+        "Professional"
+      ]
     }
   }
 }
