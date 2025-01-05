@@ -1224,12 +1224,10 @@ export interface ApiKidKid extends Struct.CollectionTypeSchema {
       }> &
       Schema.Attribute.DefaultTo<'Kid Name'>;
     publishedAt: Schema.Attribute.DateTime;
-    schedulerData: Schema.Attribute.JSON &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    rescheduled_event: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::rescheduled-event.rescheduled-event'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1839,6 +1837,51 @@ export interface ApiRefundpolicyRefundpolicy extends Struct.SingleTypeSchema {
       'api::refundpolicy.refundpolicy'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRescheduledEventRescheduledEvent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'rescheduled_events';
+  info: {
+    displayName: 'RescheduledEvent';
+    pluralName: 'rescheduled-events';
+    singularName: 'rescheduled-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    currentDate: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rescheduled-event.rescheduled-event'
+    >;
+    myKids: Schema.Attribute.Relation<'oneToMany', 'api::kid.kid'>;
+    newDate: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2462,6 +2505,7 @@ declare module '@strapi/strapi' {
       'api::product.product': ApiProductProduct;
       'api::qualitycontrol.qualitycontrol': ApiQualitycontrolQualitycontrol;
       'api::refundpolicy.refundpolicy': ApiRefundpolicyRefundpolicy;
+      'api::rescheduled-event.rescheduled-event': ApiRescheduledEventRescheduledEvent;
       'api::slider.slider': ApiSliderSlider;
       'api::tnc.tnc': ApiTncTnc;
       'plugin::content-releases.release': PluginContentReleasesRelease;

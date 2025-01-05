@@ -85,13 +85,11 @@
       "target": "api::milestone.milestone",
       "mappedBy": "kid"
     },
-    "schedulerData": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json"
+    "rescheduled_event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rescheduled-event.rescheduled-event",
+      "inversedBy": "myKids"
     }
   }
 }
