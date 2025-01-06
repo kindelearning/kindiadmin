@@ -441,6 +441,15 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       'api::activity.activity'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Resources: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     SetUpTime: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1209,7 +1218,7 @@ export interface ApiKidKid extends Struct.CollectionTypeSchema {
     >;
     myBadges: Schema.Attribute.Relation<'oneToMany', 'api::badge.badge'>;
     myMilestones: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::milestone.milestone'
     >;
     myParent: Schema.Attribute.Relation<
@@ -1305,7 +1314,7 @@ export interface ApiMilestoneMilestone extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    kid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
+    kid: Schema.Attribute.Relation<'manyToMany', 'api::kid.kid'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
