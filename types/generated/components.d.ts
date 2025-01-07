@@ -144,12 +144,14 @@ export interface GlobalStandardPagesData extends Struct.ComponentSchema {
 export interface GlobalTeamMember extends Struct.ComponentSchema {
   collectionName: 'components_global_team_members';
   info: {
+    description: '';
     displayName: 'Team Member';
     icon: 'briefcase';
   };
   attributes: {
     About: Schema.Attribute.RichText;
     Degree: Schema.Attribute.Text;
+    MemberPic: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Name: Schema.Attribute.String;
   };
 }
