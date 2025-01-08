@@ -140,6 +140,12 @@
           "localized": true
         }
       }
+    },
+    "rescheduled_event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rescheduled-event.rescheduled-event",
+      "mappedBy": "myActivity"
     }
   }
 }

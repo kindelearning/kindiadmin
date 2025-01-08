@@ -441,6 +441,10 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       'api::activity.activity'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    rescheduled_event: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::rescheduled-event.rescheduled-event'
+    >;
     Resources: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -1225,6 +1229,10 @@ export interface ApiKidKid extends Struct.CollectionTypeSchema {
       'manyToMany',
       'plugin::users-permissions.user'
     >;
+    myRescheduledActivities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rescheduled-event.rescheduled-event'
+    >;
     Name: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1233,10 +1241,6 @@ export interface ApiKidKid extends Struct.CollectionTypeSchema {
       }> &
       Schema.Attribute.DefaultTo<'Kid Name'>;
     publishedAt: Schema.Attribute.DateTime;
-    rescheduled_event: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::rescheduled-event.rescheduled-event'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1857,6 +1861,7 @@ export interface ApiRescheduledEventRescheduledEvent
   extends Struct.CollectionTypeSchema {
   collectionName: 'rescheduled_events';
   info: {
+    description: '';
     displayName: 'RescheduledEvent';
     pluralName: 'rescheduled-events';
     singularName: 'rescheduled-event';
@@ -1873,18 +1878,13 @@ export interface ApiRescheduledEventRescheduledEvent
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    currentDate: Schema.Attribute.Date &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::rescheduled-event.rescheduled-event'
     >;
-    myKids: Schema.Attribute.Relation<'oneToMany', 'api::kid.kid'>;
+    myActivity: Schema.Attribute.Relation<'oneToOne', 'api::activity.activity'>;
+    myKid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
     newDate: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
