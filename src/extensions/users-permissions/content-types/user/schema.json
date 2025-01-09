@@ -111,6 +111,18 @@
         "Family Plus",
         "Professional"
       ]
+    },
+    "allActivities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::activity.activity",
+      "inversedBy": "relatedUsers"
+    },
+    "assignedMilestones": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::milestone.milestone",
+      "mappedBy": "users"
     }
   }
 }

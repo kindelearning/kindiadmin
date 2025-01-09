@@ -67,6 +67,12 @@
       "relation": "manyToMany",
       "target": "api::kid.kid",
       "inversedBy": "myMilestones"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "assignedMilestones"
     }
   }
 }

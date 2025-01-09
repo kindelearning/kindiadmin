@@ -127,14 +127,15 @@
       "inversedBy": "myActivities"
     },
     "Resources": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -146,6 +147,12 @@
       "relation": "oneToOne",
       "target": "api::rescheduled-event.rescheduled-event",
       "mappedBy": "myActivity"
+    },
+    "relatedUsers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "allActivities"
     }
   }
 }

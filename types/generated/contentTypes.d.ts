@@ -441,6 +441,10 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       'api::activity.activity'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    relatedUsers: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     rescheduled_event: Schema.Attribute.Relation<
       'oneToOne',
       'api::rescheduled-event.rescheduled-event'
@@ -1348,6 +1352,10 @@ export interface ApiMilestoneMilestone extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    users: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
@@ -1371,6 +1379,35 @@ export interface ApiMonthlythemeMonthlytheme extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::monthlytheme.monthlytheme'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNestedActivityNestedActivity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nested_activities';
+  info: {
+    description: '';
+    displayName: 'nestedActivity';
+    pluralName: 'nested-activities';
+    singularName: 'nested-activity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nested-activity.nested-activity'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -2416,6 +2453,14 @@ export interface PluginUsersPermissionsUser
     draftAndPublish: false;
   };
   attributes: {
+    allActivities: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::activity.activity'
+    >;
+    assignedMilestones: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::milestone.milestone'
+    >;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -2505,6 +2550,7 @@ declare module '@strapi/strapi' {
       'api::level.level': ApiLevelLevel;
       'api::milestone.milestone': ApiMilestoneMilestone;
       'api::monthlytheme.monthlytheme': ApiMonthlythemeMonthlytheme;
+      'api::nested-activity.nested-activity': ApiNestedActivityNestedActivity;
       'api::our-mission.our-mission': ApiOurMissionOurMission;
       'api::our-theme.our-theme': ApiOurThemeOurTheme;
       'api::ourpricing.ourpricing': ApiOurpricingOurpricing;
