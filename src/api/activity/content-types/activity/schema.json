@@ -153,6 +153,19 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "allActivities"
+    },
+    "isPopular": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "default": "Yes"
     }
   }
 }

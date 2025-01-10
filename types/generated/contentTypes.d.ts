@@ -416,6 +416,13 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    isPopular: Schema.Attribute.Enumeration<['Yes', 'No']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Yes'>;
     kid: Schema.Attribute.Relation<'manyToOne', 'api::kid.kid'>;
     LearningArea: Schema.Attribute.Enumeration<
       [
