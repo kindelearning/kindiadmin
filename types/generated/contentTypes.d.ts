@@ -2457,7 +2457,7 @@ export interface PluginUsersPermissionsUser
       'manyToMany',
       'api::activity.activity'
     >;
-    assignedMilestones: Schema.Attribute.Relation<
+    allMilestones: Schema.Attribute.Relation<
       'manyToMany',
       'api::milestone.milestone'
     >;
