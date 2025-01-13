@@ -727,7 +727,7 @@ export interface ApiContactFormContactForm extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::contact-form.contact-form'
     >;
-    Message: Schema.Attribute.Blocks &
+    Message: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
