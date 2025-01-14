@@ -442,6 +442,12 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'Emotional & Social Strength'>;
+    LearningAreaIcons: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -479,12 +485,13 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'Sensory Development'>;
-    Skills: Schema.Attribute.Blocks &
+    Skills: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }>;
+      }> &
+      Schema.Attribute.DefaultTo<'Skills'>;
     Theme: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

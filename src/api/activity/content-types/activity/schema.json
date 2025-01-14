@@ -25,14 +25,6 @@
       "type": "string",
       "default": "Activity Title"
     },
-    "Skills": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks"
-    },
     "Theme": {
       "pluginOptions": {
         "i18n": {
@@ -166,6 +158,23 @@
         "No"
       ],
       "default": "Yes"
+    },
+    "Skills": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "default": "Skills"
+    },
+    "LearningAreaIcons": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }
