@@ -1308,6 +1308,7 @@ export interface ApiLevelLevel extends Struct.CollectionTypeSchema {
 export interface ApiMilestoneMilestone extends Struct.CollectionTypeSchema {
   collectionName: 'milestones';
   info: {
+    description: '';
     displayName: 'Milestone';
     pluralName: 'milestones';
     singularName: 'milestone';
@@ -1330,12 +1331,13 @@ export interface ApiMilestoneMilestone extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.String &
+    Description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }>;
+      }> &
+      Schema.Attribute.DefaultTo<'Educational play activities, ensuring children learn and develop consistently.'>;
     kid: Schema.Attribute.Relation<'manyToMany', 'api::kid.kid'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "milestone",
     "pluralName": "milestones",
-    "displayName": "Milestone"
+    "displayName": "Milestone",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,23 +24,16 @@
       },
       "type": "string"
     },
-    "Description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -73,6 +67,15 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "allMilestones"
+    },
+    "Description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "default": "Educational play activities, ensuring children learn and develop consistently."
     }
   }
 }
