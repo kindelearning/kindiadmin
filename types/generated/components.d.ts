@@ -67,6 +67,8 @@ export interface GlobalKindiRegularSection extends Struct.ComponentSchema {
   attributes: {
     bgcolor: Schema.Attribute.String;
     Body: Schema.Attribute.RichText;
+    buttonColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#45d35d'>;
     featuredText: Schema.Attribute.Text;
     Media: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',

@@ -29,6 +29,10 @@
     },
     "bgcolor": {
       "type": "string"
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "#45d35d"
     }
   }
 }
