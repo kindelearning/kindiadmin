@@ -979,6 +979,13 @@ export interface ApiHomepageHeroSectionHomepageHeroSection
     };
   };
   attributes: {
+    bgColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'#3F3D91'>;
     BodyDescription: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1951,6 +1958,44 @@ export interface ApiRescheduledEventRescheduledEvent
   };
 }
 
+export interface ApiReviewReview extends Struct.CollectionTypeSchema {
+  collectionName: 'reviews';
+  info: {
+    displayName: 'Review';
+    pluralName: 'reviews';
+    singularName: 'review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bgcolor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#F05C5C'>;
+    Body: Schema.Attribute.RichText &
+      Schema.Attribute.DefaultTo<'Educational play activities, ensuring children learn and develop consistently.'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::review.review'
+    > &
+      Schema.Attribute.Private;
+    MainLine: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'First Line of review'>;
+    MainLineColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#F05C5C'>;
+    publishedAt: Schema.Attribute.DateTime;
+    SecondLine: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Educational play activities, ensuring children learn and develop consistently.'>;
+    SecondLineColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#019ACF'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSliderSlider extends Struct.SingleTypeSchema {
   collectionName: 'sliders';
   info: {
@@ -2577,6 +2622,7 @@ declare module '@strapi/strapi' {
       'api::qualitycontrol.qualitycontrol': ApiQualitycontrolQualitycontrol;
       'api::refundpolicy.refundpolicy': ApiRefundpolicyRefundpolicy;
       'api::rescheduled-event.rescheduled-event': ApiRescheduledEventRescheduledEvent;
+      'api::review.review': ApiReviewReview;
       'api::slider.slider': ApiSliderSlider;
       'api::tnc.tnc': ApiTncTnc;
       'plugin::content-releases.release': PluginContentReleasesRelease;

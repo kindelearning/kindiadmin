@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MainLine": {
+      "type": "string",
+      "default": "First Line of review"
+    },
+    "MainLineColor": {
+      "type": "string",
+      "default": "#F05C5C"
+    },
+    "SecondLine": {
+      "type": "string",
+      "default": "Educational play activities, ensuring children learn and develop consistently."
+    },
+    "SecondLineColor": {
+      "type": "string",
+      "default": "#019ACF"
+    },
+    "Body": {
+      "type": "richtext",
+      "default": "Educational play activities, ensuring children learn and develop consistently."
+    },
+    "bgcolor": {
+      "type": "string",
+      "default": "#F05C5C"
+    }
+  }
+}

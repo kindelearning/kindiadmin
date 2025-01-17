@@ -55,6 +55,15 @@
         }
       },
       "type": "richtext"
+    },
+    "bgColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "#3F3D91"
     }
   }
 }
