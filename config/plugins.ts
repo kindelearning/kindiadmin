@@ -23,6 +23,8 @@ module.exports = ({ env }) => ({
           domain: env('AUTH0_DOMAIN'),
         },
       },
+      redirect: 'https://kindilearning.vercel.app/', // Replace with your front-end URL
+
       
     },
   },
