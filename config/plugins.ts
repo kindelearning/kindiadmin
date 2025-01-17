@@ -16,15 +16,18 @@ module.exports = ({ env }) => ({
   'users-permissions': {
     enabled: true,
     config: {
-      jwtSecret: env('JWT_SECRET'),
-      jwt: {
-        expiresIn: '7d',
+      providers: {
+        auth0: {
+          clientId: env('AUTH0_CLIENT_ID'),
+          clientSecret: env('AUTH0_CLIENT_SECRET'),
+          domain: env('AUTH0_DOMAIN'),
+        },
       },
-      google: {
-        clientId: '1055268493431-9l6ee7s7d7o14dfg5vhh9pr0jgq7rlh7.apps.googleusercontent.com',
-        clientSecret: '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',
-        redirect_uri: env('https://proper-fun-404805c7d9.strapiapp.com/api/connect/google/callback'),
-      },
+      
     },
   },
 });
+// jwtSecret: env('JWT_SECRET'),
+//       jwt: {
+//         expiresIn: '7d',
+//       }
