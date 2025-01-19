@@ -22,7 +22,8 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: ["https://kindilearning.vercel.app"], // Your frontend's URL
+      origin: ["http://localhost:3000", "http://localhost:1337", "https://kindilearning.vercel.app"], // Your frontend's URL
+      // origin: ["https://kindilearning.vercel.app"], // Your frontend's URL
       methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
       credentials: true,
